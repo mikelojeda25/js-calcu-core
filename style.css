@@ -34,11 +34,13 @@ button:nth-child(15) {
 
 .math-section {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   padding: 100px 0;
+  gap: 30px;
 }
 
-.calculator {
+.calculator,
+.calculator-info {
   width: 600px;
   box-shadow: 10px 10px 10px rgba(88, 88, 88, 0.11);
   padding: 30px;

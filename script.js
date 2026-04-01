@@ -1,8 +1,10 @@
 // Calculating Numbers with Eval
 const display = document.getElementById("display");
+const answerDisplay = document.getElementById("answer-display");
 
 function appendToDisplay(input) {
   display.value += input;
+  answer.value += input;
 }
 
 function clearDisplay() {
@@ -11,7 +13,7 @@ function clearDisplay() {
 
 function calculate() {
   try {
-    display.value = eval(display.value);
+    answerDisplay.innerText = "Result: " + eval(display.value);
   } catch (error) {
     display.value = "Error";
   }
@@ -28,12 +30,10 @@ function appendToDisplay(input) {
 
 //Prevent double operations
 function appendToDisplay(input) {
-  // 1. Huwag payagan ang double operators (e.g., "++" o "**")
   const lastChar = display.value.slice(-1);
-  const operators = ["+", "-", "*", "/"];
+  const operators = ["+", "-", "*", "/", "."];
 
   if (operators.includes(lastChar) && operators.includes(input)) {
-    // Palitan ang huling operator ng bago (kung nagbago ang isip ng user)
     display.value = display.value.slice(0, -1) + input;
     return;
   }
