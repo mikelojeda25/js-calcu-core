@@ -1,4 +1,65 @@
 *,
 body {
   background: #f5f5f5;
+  box-sizing: border-box;
+}
+
+.button {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+button,
+a {
+  display: flex;
+  cursor: pointer;
+  border: gray solid 1px;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+}
+
+.button button:hover {
+  color: white;
+  background: rgb(99, 99, 99);
+}
+
+.button button:nth-child(8),
+button:nth-child(15) {
+  grid-row: span 2;
+  height: 100%;
+}
+
+.math-section {
+  display: flex;
+  justify-content: space-around;
+  padding: 100px 0;
+}
+
+.calculator {
+  width: 600px;
+  box-shadow: 10px 10px 10px rgba(88, 88, 88, 0.11);
+  padding: 30px;
+  border-radius: 10px;
+  border: rgba(128, 128, 128, 0.123) 1px solid;
+}
+
+.button {
+  height: 500px;
+}
+
+button {
+  font-weight: bolder;
+  background: #ececec;
+}
+
+.problem-input {
+  width: 100%;
+  margin: 10px 0;
+  border: gray 1px solid;
+  height: 100px;
+  padding: 10px 20px;
+  font-size: 30px;
 }
