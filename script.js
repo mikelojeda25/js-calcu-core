@@ -49,7 +49,19 @@ document.addEventListener("keydown", function (event) {
     appendToDisplay(key);
   } else if (key === "Enter") {
     calculate();
+  } else if (key === "Backspace") {
+    backspace();
   } else if (key === "Escape") {
     clearDisplay();
   }
 });
+
+// Backspace
+function backspace() {
+  display.value = display.value.slice(0, -1);
+
+  // Kung nabura na lahat, linisin din yung result preview sa baba
+  if (display.value === "") {
+    answerDisplay.innerText = "";
+  }
+}
