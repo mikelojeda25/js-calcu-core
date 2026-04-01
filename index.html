@@ -8,12 +8,13 @@
       type="image/x-icon"
       href="https://res.cloudinary.com/dd5gbzoti/image/upload/v1775046995/calculator_logo_el56hl.png"
     />
+    <link rel="stylesheet" href="style.css" />
     <title>Calculator - Number to Words Conversion</title>
   </head>
   <body>
     <section>
       <div class="calculator">
-        <input type="text" id="display" />
+        <input type="text" id="display" readonly />
 
         <div class="button">
           <!-- ============ Numbers ============ -->
@@ -27,6 +28,7 @@
           <button onclick="appendToDisplay('7')">7</button>
           <button onclick="appendToDisplay('8')">8</button>
           <button onclick="appendToDisplay('9')">9</button>
+          <button onclick="appendToDisplay('.')">.</button>
 
           <!-- ============ Operation ============ -->
           <button onclick="appendToDisplay('+')">+</button>
