@@ -43,7 +43,19 @@
         </div>
       </div>
 
-      <div class="calculator-info"><p id="answer-display"></p></div>
+      <div class="calculator-info">
+        <p id="answer-display"></p>
+
+        <div class="history">
+          <div class="history-header">
+            <span>History</span>
+            <button onclick="clearHistory()" class="clear-history-btn">
+              Clear
+            </button>
+          </div>
+          <ul id="history-list"></ul>
+        </div>
+      </div>
     </section>
 
     <script src="script.js"></script>

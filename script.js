@@ -1,10 +1,11 @@
-// Calculating Numbers with Eval
+//=================================================================================
+// I/O RESULT
+//=================================================================================
 const display = document.getElementById("display");
 const answerDisplay = document.getElementById("answer-display");
 
 function appendToDisplay(input) {
   display.value += input;
-  answer.value += input;
 }
 
 function clearDisplay() {
@@ -18,6 +19,36 @@ function calculate() {
     display.value = "Error";
   }
 }
+
+//=================================================================================
+// KEYBOARD FUNCTION
+//=================================================================================
+document.addEventListener("keydown", function (event) {
+  const key = event.key;
+
+  if ("0123456789+-*/.".includes(key)) {
+    appendToDisplay(key);
+  } else if (key === "Enter") {
+    calculate();
+  } else if (key === "Backspace") {
+    backspace();
+  } else if (key === "Escape") {
+    clearDisplay();
+  }
+});
+
+// Backspace
+function backspace() {
+  display.value = display.value.slice(0, -1);
+
+  if (display.value === "") {
+    answerDisplay.innerText = "";
+  }
+}
+
+//=================================================================================
+// PREVENTION: Double input
+//=================================================================================
 
 //Prevent double dots
 function appendToDisplay(input) {
@@ -39,29 +70,4 @@ function appendToDisplay(input) {
   }
 
   display.value += input;
-}
-
-// Keyboard Function
-document.addEventListener("keydown", function (event) {
-  const key = event.key;
-
-  if ("0123456789+-*/.".includes(key)) {
-    appendToDisplay(key);
-  } else if (key === "Enter") {
-    calculate();
-  } else if (key === "Backspace") {
-    backspace();
-  } else if (key === "Escape") {
-    clearDisplay();
-  }
-});
-
-// Backspace
-function backspace() {
-  display.value = display.value.slice(0, -1);
-
-  // Kung nabura na lahat, linisin din yung result preview sa baba
-  if (display.value === "") {
-    answerDisplay.innerText = "";
-  }
 }
