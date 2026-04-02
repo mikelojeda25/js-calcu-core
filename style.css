@@ -65,3 +65,60 @@ button {
   padding: 10px 20px;
   font-size: 30px;
 }
+
+/* History */
+.history {
+  margin-top: 16px;
+}
+
+.history-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+.clear-history-btn {
+  font-size: 12px;
+  padding: 4px 10px;
+  cursor: pointer;
+  background: #e74c3c;
+  color: white;
+  border: none;
+  border-radius: 6px;
+}
+
+.clear-history-btn:hover {
+  background: #c0392b;
+}
+
+#history-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+#history-list li {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 8px;
+  border-bottom: 1px solid #eee;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.15s;
+}
+
+#history-list li:hover {
+  background: #f0f0f0;
+}
+
+.hist-expression {
+  color: #555;
+}
+
+.hist-equals {
+  font-weight: bold;
+}
