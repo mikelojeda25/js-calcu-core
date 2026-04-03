@@ -99,3 +99,96 @@ document.addEventListener("keydown", function (event) {
     clearDisplay();
   }
 });
+
+//=================================================================================
+// NUMBER TO WORDS
+//=================================================================================
+function numberToWords(num) {
+  if (isNaN(num)) return "Not a number";
+  if (!isFinite(num)) return "Infinity";
+
+  const ones = [
+    "",
+    "One",
+    "Two",
+    "Three",
+    "Four",
+    "Five",
+    "Six",
+    "Seven",
+    "Eight",
+    "Nine",
+    "Ten",
+    "Eleven",
+    "Twelve",
+    "Thirteen",
+    "Fourteen",
+    "Fifteen",
+    "Sixteen",
+    "Seventeen",
+    "Eighteen",
+    "Nineteen",
+  ];
+  const tens = [
+    "",
+    "",
+    "Twenty",
+    "Thirty",
+    "Forty",
+    "Fifty",
+    "Sixty",
+    "Seventy",
+    "Eighty",
+    "Ninety",
+  ];
+  const scales = ["", "Thousand", "Million", "Billion", "Trillion"];
+
+  function convertHundreds(n) {
+    let res = "";
+    if (n >= 100) {
+      res += ones[Math.floor(n / 100)] + " Hundred ";
+      n %= 100;
+    }
+    if (n >= 20) {
+      res += tens[Math.floor(n / 10)] + " ";
+      n %= 10;
+    }
+    if (n > 0) {
+      res += ones[n] + " ";
+    }
+    return res;
+  }
+
+  const isNegative = num < 0;
+  num = Math.abs(num);
+
+  // Handle decimal part
+  let decimalWords = "";
+  if (!Number.isInteger(num)) {
+    const decDigits = num.toFixed(10).split(".")[1].replace(/0+$/, ""); // trim trailing zeros
+    decimalWords =
+      " Point " +
+      decDigits
+        .split("")
+        .map((d) => ones[+d] || "Zero")
+        .join(" ");
+    num = Math.floor(num);
+  }
+
+  if (num === 0 && !decimalWords) return "Zero";
+
+  let result = "";
+  let scaleIndex = 0;
+
+  while (num > 0) {
+    const chunk = num % 1000;
+    if (chunk !== 0) {
+      const scaleWord = scales[scaleIndex] ? scales[scaleIndex] + " " : "";
+      result = convertHundreds(chunk) + scaleWord + result;
+    }
+    num = Math.floor(num / 1000);
+    scaleIndex++;
+  }
+
+  return (isNegative ? "Negative " : "") + result.trim() + decimalWords;
+}
