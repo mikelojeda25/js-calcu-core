@@ -122,3 +122,43 @@ button {
 .hist-equals {
   font-weight: bold;
 }
+
+.words-section {
+  display: flex;
+  justify-content: center;
+  margin-top: 24px;
+}
+
+.words-card {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 24px 32px;
+  min-width: 300px;
+  max-width: 500px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.words-label {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #999;
+  margin-bottom: 4px;
+}
+
+.words-number {
+  font-size: 36px;
+  font-weight: bold;
+  color: #222;
+  margin: 0 0 12px;
+}
+
+.words-text {
+  font-size: 18px;
+  color: #444;
+  line-height: 1.5;
+  margin: 0;
+  font-style: italic;
+}
