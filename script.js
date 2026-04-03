@@ -192,3 +192,25 @@ function numberToWords(num) {
 
   return (isNegative ? "Negative " : "") + result.trim() + decimalWords;
 }
+
+// Then update calculate() — add these two lines after getting result:
+function calculate() {
+  if (!display.value) return;
+
+  try {
+    const expression = display.value;
+    const result = eval(expression);
+    answerDisplay.innerText = "Result: " + result;
+
+    // Number to words
+    const wordsOutput = document.getElementById("number-display");
+    const textOutput = document.getElementById("words-display");
+    wordsOutput.innerText = Number(result).toLocaleString();
+    textOutput.innerText = numberToWords(Number(result));
+
+    history.unshift({ expression, result });
+    renderHistory();
+  } catch (error) {
+    display.value = "Error";
+  }
+}
